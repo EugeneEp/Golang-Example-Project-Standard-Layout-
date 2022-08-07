@@ -1,0 +1,8 @@
+{"level":"info","ts":1659900919.233304,"caller":"service/app.go:38","msg":"Starting server project"}
+{"level":"info","ts":1659900919.234401,"caller":"service/web.go:40","msg":"Base Web Server Configs","host":"localhost","port":"80"}
+{"level":"info","ts":1659900919.234401,"caller":"service/web.go:56","msg":"Trying to start Web Server","addr":"localhost:80"}
+{"level":"info","ts":1659900919.2402277,"caller":"service/web.go:79","msg":"Starting Web Server on localhost:80"}
+{"level":"info","ts":1659900963.2174618,"caller":"service/app.go:38","msg":"Starting server project"}
+{"level":"info","ts":1659900963.2184374,"caller":"service/web.go:40","msg":"Base Web Server Configs","host":"localhost","port":"80"}
+{"level":"info","ts":1659900963.2184374,"caller":"service/web.go:56","msg":"Trying to start Web Server","addr":"localhost:80"}
+{"level":"info","ts":1659900963.2266095,"caller":"service/web.go:79","msg":"Starting Web Server on localhost:80"}
