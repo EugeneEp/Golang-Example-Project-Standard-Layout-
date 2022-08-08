@@ -60,7 +60,7 @@ const (
 	// SyncLayer Раздел настроек синхронизации
 	SyncLayer              = `sync`
 	SyncDeleteUsersTime    = SyncLayer + LayerSeparator + `deleteUsersTime`
-	DefaultDeleteUsersTime = 1
+	DefaultDeleteUsersTime = 24
 
 	// UsersLayer Раздел настроек пользователей
 	UsersLayer                       = `users`

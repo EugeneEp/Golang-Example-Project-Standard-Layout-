@@ -18,8 +18,8 @@ func New(ctn di.Container, cfg *viper.Viper) (*scheduler.Scheduler, error) {
 
 	background := scheduler.NewScheduler()
 	background.Add(context.Background(), func(ctx context.Context) {
-		go coreUser.DeleteOverdue(ctn, domainUser.DeleteOverdue{TimeRange: cfg.GetInt64(configuration.UsersOverdueTimeInSeconds)})
-	}, time.Second*deleteUsersTime)
+		coreUser.DeleteOverdue(ctn, domainUser.DeleteOverdue{TimeRange: cfg.GetInt64(configuration.UsersOverdueTimeInSeconds)})
+	}, time.Hour*deleteUsersTime)
 
 	return background, nil
 }

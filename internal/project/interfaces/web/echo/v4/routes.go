@@ -6,6 +6,6 @@ import (
 )
 
 func Bind(g *echo.Group) {
-	route := g.Group("/v4")
+	route := g.Group("/v1")
 	user.Bind(route)
 }

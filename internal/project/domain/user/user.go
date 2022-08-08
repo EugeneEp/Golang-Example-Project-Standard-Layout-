@@ -27,7 +27,7 @@ type (
 
 	Create struct {
 		ID          string
-		DisplayName string `query:"display_name"`
+		DisplayName string `json:"display_name"`
 		CreatedAt   int64  `json:"created_at"`
 	}
 

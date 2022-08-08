@@ -4,14 +4,15 @@ import (
 	"go.uber.org/zap"
 	"projectname/internal/project/domain/user"
 	domain "projectname/internal/project/domain/user"
+	"time"
 )
 
-const queryGetValue = `SELECT t1.id, t1.display_name FROM "user".users t1 WHERE t1.id=$1`
+const queryGetValue = `SELECT t1.id, t1.display_name, t1.created_at FROM "user".users t1 WHERE t1.id=$1`
 
 type getValueResult struct {
-	ID          string `json:"id"`
-	DisplayName string `json:"display_name"`
-	CreatedAt   int64  `json:"created_at"`
+	ID          string     `json:"id"`
+	DisplayName string     `json:"display_name"`
+	CreatedAt   *time.Time `json:"created_at"`
 }
 
 func (c *context) Get(rq user.Get) (*user.GetResult, error) {
@@ -29,7 +30,7 @@ func (c *context) Get(rq user.Get) (*user.GetResult, error) {
 		Entity: user.Entity{
 			ID:          res.ID,
 			DisplayName: res.DisplayName,
-			CreatedAt:   res.CreatedAt,
+			CreatedAt:   res.CreatedAt.Unix(),
 		},
 	}, nil
 }

@@ -6,7 +6,6 @@ import (
 	"projectname/internal/project/core/user"
 	domain "projectname/internal/project/domain/user"
 	"projectname/internal/project/interfaces/web/echo/middleware"
-	"projectname/internal/project/interfaces/web/echo/response"
 )
 
 func Get(context echo.Context) error {
@@ -17,9 +16,7 @@ func Get(context echo.Context) error {
 		}
 	)
 
-	if err := context.Bind(&req); err != nil {
-		return response.ErrBadRequest(err)
-	}
+	req.ID = context.Param(`id`)
 
 	res, err := user.Get(ctx.Container, req)
 	if err != nil {

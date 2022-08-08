@@ -8,6 +8,6 @@ import (
 func Bind(g *echo.Group) {
 	route := g.Group("/user")
 	route.Use(access.SetInvoker())
-	route.GET("", Get)
-	route.GET("/create", Create)
+	route.GET("/:id", Get)
+	route.POST("", Create)
 }
