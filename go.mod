@@ -10,6 +10,7 @@ require (
 	github.com/sarulabs/di/v2 v2.4.2
 	github.com/spf13/viper v1.7.0
 	github.com/zhashkevych/scheduler v1.0.0
+	go.mongodb.org/mongo-driver v1.10.3
 	go.uber.org/zap v1.16.0
 	golang.org/x/sys v0.0.0-20210910150752-751e447fb3d0
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0

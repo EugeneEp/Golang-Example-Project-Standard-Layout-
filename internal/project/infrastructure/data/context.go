@@ -30,9 +30,12 @@ func New(ctn di.Container) (Context, error) {
 		return nil, err
 	}
 
-	if cfg.GetString(configuration.DataStoreType) == configuration.DataStoreTypeReg {
+	switch cfg.GetString(configuration.DataStoreType) {
+	case configuration.DataStoreTypeReg:
 		return ctxREG(ctn)
-	} else {
+	case configuration.DataStoreTypeMongo:
+		return ctxMongo(ctn)
+	default:
 		return ctxDB(ctn)
 	}
 }

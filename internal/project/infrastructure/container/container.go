@@ -13,6 +13,7 @@ import (
 	"projectname/internal/project/infrastructure/data"
 	"projectname/internal/project/infrastructure/database/driver/pgx"
 	"projectname/internal/project/infrastructure/logger"
+	"projectname/internal/project/infrastructure/nosql/mongo"
 	"projectname/internal/project/interfaces/web/echo/server"
 )
 
@@ -67,6 +68,29 @@ func initDependencies(app project.Project) []di.Def {
 				logServiceClosing(app, pgx.ServiceName)
 				obj.(*pgx.Driver).Close()
 				return
+			},
+		},
+		{
+			Name: mongo.ServiceName,
+			Build: func(ctn di.Container) (interface{}, error) {
+				var cfg *viper.Viper
+
+				if err := ctn.Fill(config.ServiceName, &cfg); err != nil {
+					return nil, err
+				}
+
+				val, err := mongo.New(context.Background(), cfg)
+
+				if err != nil {
+					logServiceBuildingError(app, mongo.ServiceName, err)
+				}
+
+				return val, err
+			},
+			Close: func(obj interface{}) (err error) {
+				logServiceClosing(app, mongo.ServiceName)
+				driver := obj.(*mongo.Driver)
+				return driver.Client.Disconnect(driver.Ctx)
 			},
 		},
 		{

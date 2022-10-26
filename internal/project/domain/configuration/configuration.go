@@ -55,6 +55,7 @@ const (
 	DataStoreType        = DataStoreLayer + LayerSeparator + `storeType`
 	DataStoreTypeReg     = `reg`
 	DataStoreTypeDb      = `db`
+	DataStoreTypeMongo   = `mongo`
 	DefaultDataStoreType = DataStoreTypeDb
 
 	// SyncLayer Раздел настроек синхронизации
@@ -66,4 +67,11 @@ const (
 	UsersLayer                       = `users`
 	UsersOverdueTimeInSeconds        = UsersLayer + LayerSeparator + `overdueTimeInSeconds`
 	DefaultUsersOverdueTimeInSeconds = 60
+
+	//MongoLayer Раздел настроек соединения с MongoDB
+	MongoLayer             = `mongo`
+	MongoConnection        = MongoLayer + LayerSeparator + `connection`
+	DefaultMongoConnection = `mongodb://localhost:27017`
+	MongoDbName            = MongoLayer + LayerSeparator + `db`
+	DefaultMongoDbName     = `project`
 )

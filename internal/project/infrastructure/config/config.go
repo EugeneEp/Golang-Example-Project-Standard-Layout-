@@ -30,6 +30,8 @@ func SetDefaults(cfg *viper.Viper) error {
 	cfg.SetDefault(configuration.DataStoreType, configuration.DefaultDataStoreType)
 	cfg.SetDefault(configuration.SyncDeleteUsersTime, configuration.DefaultDeleteUsersTime)
 	cfg.Set(configuration.UsersOverdueTimeInSeconds, configuration.DefaultUsersOverdueTimeInSeconds)
+	cfg.Set(configuration.MongoConnection, configuration.DefaultMongoConnection)
+	cfg.Set(configuration.MongoDbName, configuration.DefaultMongoDbName)
 
 	dir, err := determineBaseDir()
 
